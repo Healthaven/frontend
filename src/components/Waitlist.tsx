@@ -7,13 +7,17 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { Mail } from "lucide-react";
 
-const emailSchema = z.object({
+const waitlistSchema = z.object({
+  first_name: z.string().min(1, { message: "First name is required" }),
+  location: z.string().min(1, { message: "Location is required" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
 });
 
 export const Waitlist = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [firstName, setFirstName] = useState("");
+  const [location, setLocation] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,16 +26,30 @@ export const Waitlist = () => {
     setIsLoading(true);
 
     try {
-      // Validate email
-      emailSchema.parse({ email });
+      // Validate form data
+      const formData = { first_name: firstName, location, email };
+      waitlistSchema.parse(formData);
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Make API call to backend
+      const response = await fetch("http://localhost:3000/api/v1/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to join waitlist");
+      }
 
       toast.success("Thanks! We'll reach out when plans launch.", {
         description: "Check your inbox for a confirmation email.",
       });
 
+      // Clear form
+      setFirstName("");
+      setLocation("");
       setEmail("");
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -76,6 +94,24 @@ export const Waitlist = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input
+                  type="text"
+                  placeholder="First name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="h-14 bg-background/50 border-border text-lg"
+                  required
+                />
+                <Input
+                  type="text"
+                  placeholder="Location (City, State)"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="h-14 bg-background/50 border-border text-lg"
+                  required
+                />
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Input
                   type="email"
