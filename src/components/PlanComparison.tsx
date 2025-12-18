@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import { toast } from "sonner";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 const plans = [
   {
@@ -56,11 +56,10 @@ const plans = [
 export const PlanComparison = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const scrollTo = useSmoothScroll();
 
-  const handleNotifyMe = (planName: string) => {
-    toast.success(`Great choice! We'll notify you when ${planName} plan launches.`, {
-      description: "You'll be among the first to know!",
-    });
+  const handleNotifyMe = () => {
+    scrollTo("waitlist");
   };
 
   return (
@@ -135,7 +134,8 @@ export const PlanComparison = () => {
                   variant={plan.popular ? "hero" : "outline"}
                   size="lg"
                   className="w-full"
-                  onClick={() => handleNotifyMe(plan.name)}
+                  onClick={handleNotifyMe}
+                  aria-label="Scroll to Waitlist section"
                 >
                   Notify Me When Available
                 </Button>

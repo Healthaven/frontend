@@ -98,25 +98,23 @@ export const Waitlist = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
                   type="text"
-                  placeholder="First name"
+                  placeholder="First name (optional)"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="h-14 bg-background/50 border-border text-lg"
-                  required
                 />
                 <Input
                   type="text"
-                  placeholder="Location (City, State)"
+                  placeholder="Location (City, State) - optional"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   className="h-14 bg-background/50 border-border text-lg"
-                  required
                 />
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Input
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="Enter your email address *"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 h-14 bg-background/50 border-border text-lg"
@@ -134,7 +132,7 @@ export const Waitlist = () => {
               </div>
 
               <p className="text-sm text-muted-foreground text-center">
-                We respect your privacy. Unsubscribe at any time.
+                * Required field. We respect your privacy. Unsubscribe at any time.
               </p>
             </form>
 

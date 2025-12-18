@@ -2,10 +2,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import heroIllustration from "@/assets/hero-illustration.png";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export const Hero = () => {
+  const scrollTo = useSmoothScroll();
+
   const scrollToWaitlist = () => {
-    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
+    scrollTo("waitlist");
+  };
+
+  const scrollToFaq = () => {
+    scrollTo("faq-section");
   };
 
   return (
@@ -64,7 +71,13 @@ export const Hero = () => {
                 Join the Waitlist
                 <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg">
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-lg"
+                onClick={scrollToFaq}
+                aria-label="Scroll to Frequently Asked Questions section"
+              >
                 Learn More
               </Button>
             </motion.div>
