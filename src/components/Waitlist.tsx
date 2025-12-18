@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Mail } from "lucide-react";
+import { apiUrl } from "@/lib/api";
 
 const waitlistSchema = z.object({
   first_name: z.string().min(1, { message: "First name is required" }),
@@ -31,7 +32,7 @@ export const Waitlist = () => {
       waitlistSchema.parse(formData);
 
       // Make API call to backend
-      const response = await fetch("http://localhost:3000/api/v1/waitlist", {
+      const response = await fetch(apiUrl("/api/v1/waitlist"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
