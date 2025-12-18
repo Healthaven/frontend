@@ -40,23 +40,22 @@ export const Waitlist = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to join waitlist");
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(data.message);
+        // Clear form
+        setFirstName("");
+        setLocation("");
+        setEmail("");
+      } else {
+        toast.error(data.error || "Network error");
       }
-
-      toast.success("Thanks! We'll reach out when plans launch.", {
-        description: "Check your inbox for a confirmation email.",
-      });
-
-      // Clear form
-      setFirstName("");
-      setLocation("");
-      setEmail("");
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message);
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error("Network error");
       }
     } finally {
       setIsLoading(false);
