@@ -9,8 +9,8 @@ import { Mail } from "lucide-react";
 import { apiUrl } from "@/lib/api";
 
 const waitlistSchema = z.object({
-  first_name: z.string().min(1, { message: "First name is required" }),
-  location: z.string().min(1, { message: "Location is required" }),
+  first_name: z.string().trim().optional(),
+  location: z.string().trim().optional(),
   email: z.string().email({ message: "Please enter a valid email address" }),
 });
 
