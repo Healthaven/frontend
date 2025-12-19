@@ -1,5 +1,5 @@
 // Single source of truth for API configuration
-export const API_BASE_URL = "https://staging.healthaven.co/health";
+export const API_BASE_URL = "https://staging.healthaven.co";
 
 // Helper function to build full API URLs
 export const apiUrl = (endpoint: string): string => {
