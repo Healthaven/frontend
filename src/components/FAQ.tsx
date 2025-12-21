@@ -11,7 +11,7 @@ import {
 const faqs = [
   {
     question: "Who can use HealtHaven?",
-    answer: "HealtHaven is designed for Nigerian diaspora members visiting Nigeria for short to medium-term stays (1-6 months). Whether you're visiting family, conducting business, or exploring your roots, our plans provide comprehensive healthcare coverage during your stay.",
+    answer: "HealtHaven is designed for Nigerian diaspora and other foreigners members visiting Nigeria for short to medium-term stays (1-6 months). Whether you're visiting family, conducting business, or exploring your roots, our plans provide comprehensive healthcare coverage during your stay.",
   },
   {
     question: "How soon does coverage start?",
