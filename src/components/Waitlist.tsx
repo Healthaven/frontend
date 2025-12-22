@@ -104,7 +104,7 @@ export const Waitlist = () => {
                 />
                 <Input
                   type="text"
-                  placeholder="Location (City, State) - optional"
+                  placeholder="Location (City, Country) - optional"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   className="h-14 bg-background/50 border-border text-lg"
