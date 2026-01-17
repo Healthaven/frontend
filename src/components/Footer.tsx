@@ -71,10 +71,10 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>© {currentYear} HealtHaven. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <a href="/privacy-policy" className="hover:text-primary transition-colors duration-200">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <a href="/terms-of-service" className="hover:text-primary transition-colors duration-200">
                 Terms of Service
               </a>
             </div>
