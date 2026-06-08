@@ -1,20 +1,22 @@
 import { Linkedin, Twitter, Instagram, MessageCircle } from "lucide-react";
+import healthavenFullLogo from "@/assets/healthaven full logo.png";
+import healthavenIcon from "@/assets/healthaven icon.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: MessageCircle, href: "#", label: "WhatsApp" },
+    { icon: Linkedin, href: "https://linkedin.com/company/healthaven", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/healthaven", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/healthaven", label: "Instagram" },
+    { icon: MessageCircle, href: "https://wa.me/2348066603349", label: "WhatsApp" },
   ];
 
   const footerLinks = [
     { name: "About", href: "#about" },
-    { name: "Plans", href: "#plans" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "How It Works", href: "#how-it-works" },
+    { name: "FAQ", href: "#faq-section" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -23,13 +25,14 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">
-              <span className="text-primary">Healt</span>
-              <span className="text-foreground">Haven</span>
-            </h3>
-            <p className="text-muted-foreground">
-              Short-term health insurance for diaspora visitors in Nigeria. Healthcare without borders.
-            </p>
+            <div className="flex items-start gap-3">
+              <img src={healthavenIcon} alt="HealtHaven" className="h-6 w-auto animate-spin-slow mt-0.5 shrink-0" />
+              <p className="text-muted-foreground">
+                Short-term health insurance<br />
+                for diaspora visitors in Nigeria.<br />
+                Healthcare without borders.
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -63,13 +66,17 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
+            <a href="mailto:support@healthaven.co" className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm block">
+              support@healthaven.co
+            </a>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} HealtHaven. All rights reserved.</p>
+            <p>© {currentYear} HealtHaven Limited. All rights reserved.</p>
+            <img src={healthavenFullLogo} alt="HealtHaven" className="h-12 w-auto" />
             <div className="flex gap-6">
               <a href="/privacy-policy" className="hover:text-primary transition-colors duration-200">
                 Privacy Policy

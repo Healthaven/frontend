@@ -144,7 +144,7 @@ export const Waitlist = () => {
                     <div className="w-8 h-8 rounded-full bg-accent border-2 border-background" />
                     <div className="w-8 h-8 rounded-full bg-primary/50 border-2 border-background" />
                   </div>
-                  <span>500+ people on the waitlist</span>
+                  <span>Zero paperwork. All peace of mind.</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />

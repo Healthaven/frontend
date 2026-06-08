@@ -44,9 +44,7 @@ const Onboarding = () => {
     setShowLogin(true);
   };
 
-  const handleSocialLogin = (provider: string) => {
-    // Placeholder for social login integration
-    console.log(`Login with ${provider}`);
+  const handleSocialLogin = (_provider: string) => {
     navigate("/");
   };
 

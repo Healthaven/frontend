@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import heroIllustration from "@/assets/hero-illustration.png";
+import healthavenIcon from "@/assets/healthaven icon.png";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export const Hero = () => {
@@ -38,8 +39,12 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="inline-block"
             >
-              <div className="bg-primary/10 border border-primary/30 rounded-full px-4 py-2 text-sm font-medium text-primary">
-                🏥 Healthcare Made Simple
+              <div className="bg-primary/10 border border-primary/30 rounded-full px-4 py-2">
+                <img
+                  src={healthavenIcon}
+                  alt="HealtHaven"
+                  className="h-6 w-auto animate-spin-slow"
+                />
               </div>
             </motion.div>
 
@@ -52,7 +57,7 @@ export const Hero = () => {
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Get affordable, quality healthcare coverage from{" "}
+              Get affordable, quality healthcare full coverage from{" "}
               <span className="text-accent font-semibold">$100/month</span> — instantly.
             </p>
 
@@ -67,6 +72,7 @@ export const Hero = () => {
                 size="lg"
                 onClick={scrollToWaitlist}
                 className="text-lg group"
+                aria-label="Scroll to waitlist section"
               >
                 Join the Waitlist
                 <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />

@@ -50,8 +50,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          light: "hsl(var(--brand-light))",
+          primary: "hsl(var(--brand-primary))",
+          magenta: "hsl(var(--brand-magenta))",
+          white: "hsl(var(--brand-white))",
+          black: "hsl(var(--brand-black))",
+        },
       },
       backgroundImage: {
+        'gradient-brand': 'var(--gradient-brand)',
+        'gradient-brand-light': 'var(--gradient-brand-light)',
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
@@ -96,12 +105,16 @@ export default {
             opacity: "1"
           }
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
+        },
         "glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(257 100% 60% / 0.3)"
+            boxShadow: "0 0 20px hsl(285 100% 40% / 0.3)"
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(257 100% 60% / 0.5)"
+            boxShadow: "0 0 40px hsl(285 100% 40% / 0.5)"
           }
         },
         "accordion-down": {
@@ -127,6 +140,7 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
+        "spin-slow": "spin-slow 8s linear infinite",
         "glow": "glow 3s ease-in-out infinite",
       },
     },
