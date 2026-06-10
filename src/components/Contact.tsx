@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageSquare, Mail, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import { z } from "zod";
+import { apiUrl } from "@/lib/api";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Please enter your name."),
+  email: z.string().trim().email("Please enter a valid email address."),
+  message: z.string().trim().min(1, "Please enter a message."),
+});
 
 export const Contact = () => {
   const ref = useRef(null);
@@ -15,10 +23,38 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent! We'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setIsLoading(false);
+
+    try {
+      contactSchema.parse(formData);
+
+      const response = await fetch(apiUrl("/api/v1/contact"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 429) {
+        toast.error("Too many messages. Please try again later.");
+        return;
+      }
+
+      if (data.success) {
+        toast.success(data.message);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+      } else {
+        toast.error("Network error. Please check your connection.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
