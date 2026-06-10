@@ -8,18 +8,42 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+const faqs: { question: string; answer: React.ReactNode }[] = [
   {
-    question: "Who can use HealtHaven?",
-    answer: "HealtHaven is designed for Nigerian diaspora and other foreigners members visiting Nigeria for short to medium-term stays (1-6 months). Whether you're visiting family, conducting business, or exploring your roots, our plans provide comprehensive healthcare coverage during your stay.",
+    question: "Who is this healthcare coverage for?",
+    answer: "Healhaven is designed for Nigerians in the diaspora and international visitors traveling to Nigeria who want temporary and flexible healthcare coverage during their stay. Coverage can be purchased for short periods starting from one month.",
   },
   {
-    question: "How soon does coverage start?",
-    answer: "Coverage begins immediately upon successful registration and payment verification. You'll receive your digital health card within minutes, allowing you to access care at any of our partner hospitals across Nigeria right away.",
+    question: "What does the one-month coverage include?",
+    answer: (
+      <div className="space-y-2">
+        <p>Depending on the selected plan, coverage may include:</p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>Hospital visits</li>
+          <li>Emergency care</li>
+          <li>Doctor consultations</li>
+          <li>Prescription support</li>
+          <li>Diagnostic tests</li>
+          <li>Access to partner hospitals across Nigeria and more</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    question: "Can I buy coverage for my parents or family members in Nigeria?",
+    answer: "Yes. You can purchase and manage healthcare coverage for loved ones in Nigeria directly from the app, even if you live abroad. This includes parents, children, and other dependents.",
+  },
+  {
+    question: "How do I access care once I arrive in Nigeria?",
+    answer: "After purchasing a plan, you'll receive digital access to your healthcare details through the app. You can then visit any approved partner hospital or provider within the network for covered services during your active stay.",
+  },
+  {
+    question: "When does my coverage begin?",
+    answer: "Coverage begins on the start date selected during signup. Activation is instant after payment confirmation, allowing you to access care immediately or on your scheduled travel date.",
   },
   {
     question: "Can I pay from abroad?",
-    answer: "Absolutely! We accept international payment methods including major credit cards, debit cards, and digital payment platforms. All transactions are processed securely using industry-standard encryption.",
+    answer: "Yes. We accept international payment methods including major credit cards, debit cards, and digital payment platforms. All transactions are processed securely using industry-standard encryption.",
   },
   {
     question: "What happens if I need to extend my coverage?",

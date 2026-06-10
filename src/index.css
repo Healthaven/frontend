@@ -8,47 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 225 25% 3%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 225 20% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 285 10% 5%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 225 20% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 285 10% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 257 100% 60%;
+    --primary: 285 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 225 15% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 285 15% 10%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 225 15% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 285 10% 12%;
+    --muted-foreground: 285 10% 60%;
 
-    --accent: 45 100% 56%;
-    --accent-foreground: 225 25% 3%;
+    --accent: 285 66% 65%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 225 15% 15%;
-    --input: 225 15% 15%;
-    --ring: 257 100% 60%;
+    --border: 285 15% 15%;
+    --input: 285 15% 15%;
+    --ring: 285 100% 40%;
+
+    /* Brand colors */
+    --brand-light: 285 66% 65%;
+    --brand-primary: 285 100% 40%;
+    --brand-magenta: 300 100% 50%;
+    --brand-white: 0 0% 100%;
+    --brand-black: 0 0% 0%;
 
     --radius: 0.75rem;
 
+    /* Brand gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(285 100% 40%), hsl(300 100% 50%));
+    --gradient-brand-light: linear-gradient(135deg, hsl(285 66% 65%), hsl(300 100% 50%));
+    
     /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(257 100% 60%), hsl(257 100% 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(225 25% 3%), hsl(257 100% 10%));
-    --gradient-card: linear-gradient(135deg, hsl(225 20% 8%), hsl(225 15% 12%));
+    --gradient-primary: linear-gradient(135deg, hsl(285 100% 40%), hsl(285 100% 30%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 0%), hsl(285 100% 8%));
+    --gradient-card: linear-gradient(135deg, hsl(285 10% 5%), hsl(285 10% 8%));
     
     /* Custom shadows */
-    --shadow-glow: 0 0 40px hsl(257 100% 60% / 0.3);
-    --shadow-card: 0 10px 40px hsl(225 25% 3% / 0.5);
+    --shadow-glow: 0 0 40px hsl(285 100% 40% / 0.3);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.5);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
   }
 }
 

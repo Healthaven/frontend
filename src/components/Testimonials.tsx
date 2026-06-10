@@ -26,7 +26,7 @@ export const Testimonials = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="py-24 bg-gradient-to-b from-secondary/20 to-background" ref={ref}>
+    <section id="testimonials" className="py-24 bg-gradient-to-b from-secondary/20 to-background" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ export const Testimonials = () => {
               Testimonials
             </div>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold">What Our Users Say</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">What Our Expert Says</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Hear from diaspora visitors who trust HealtHaven for their healthcare needs
           </p>
@@ -67,21 +67,7 @@ export const Testimonials = () => {
           ))}
         </div>
 
-        {/* Partner logos placeholder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-sm text-muted-foreground mb-8">Trusted by leading healthcare providers across Nigeria</p>
-          <div className="flex flex-wrap justify-center gap-8 items-center opacity-50 grayscale">
-            {/* Placeholder for partner logos */}
-            <div className="h-12 w-32 bg-muted rounded flex items-center justify-center text-xs">Hospital Partner</div>
-            <div className="h-12 w-32 bg-muted rounded flex items-center justify-center text-xs">Medical Center</div>
-            <div className="h-12 w-32 bg-muted rounded flex items-center justify-center text-xs">Healthcare Group</div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

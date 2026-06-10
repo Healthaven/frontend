@@ -8,7 +8,7 @@ export const About = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-24 relative" ref={ref}>
+    <section id="about" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Image */}
