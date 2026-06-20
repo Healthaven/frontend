@@ -27,7 +27,7 @@ export const Contact = () => {
     try {
       contactSchema.parse(formData);
 
-      const response = await fetch(apiUrl("/api/v1/contact"), {
+      const response = await fetch(apiUrl("/api/v1/frontend/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
