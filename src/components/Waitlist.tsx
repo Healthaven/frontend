@@ -31,8 +31,8 @@ export const Waitlist = () => {
       const formData = { first_name: firstName, location, email };
       waitlistSchema.parse(formData);
 
-      // Make API call to backend
-      const response = await fetch(apiUrl("/api/v1/waitlist"), {
+      // Make API call to backend (routes are namespaced under /frontend/*)
+      const response = await fetch(apiUrl("/api/v1/frontend/waitlist"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
